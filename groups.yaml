@@ -1,0 +1,378 @@
+default_view:
+  name: Home
+  view: yes
+  icon: mdi:home
+  entities:
+   - group.weather
+   - group.outside
+   - group.inside
+   - group.events
+   - group.stocks
+   - group.currency
+   - group.cryptocurrency
+    
+weather:
+  name: Forecast
+  view: no
+  entities:
+    - sensor.time
+    - camera.wundergroundradar
+    - sensor.alert
+    - weather.dark_sky
+    - sensor.temp_high_record_f
+    - sensor.temp_high_1d_f
+    - sensor.temp_f
+    - sensor.temp_low_1d_f
+    - sensor.temp_low_record_f
+    - sensor.precip_1d
+    - sensor.precip_1d_in
+    - sensor.wind_kph
+    - sensor.wind_1d_mph
+    - sensor.weather_1d
+    - sensor.weather_2d
+    - sensor.weather_3d
+    - sensor.weather_4d
+    
+outside:
+  name: Outdoor Enviroment
+  view: no
+  entities:
+    - sensor.season
+    - sun.sun
+    - sensor.moon
+    - sensor.worldtidesinfos
+    - sensor.uv
+    - sensor.solar_radiation
+    - sensor.hline_1
+    - sensor.cold__flu_forecasted_average
+    - sensor.allergy_index_yesterday
+    - sensor.allergy_index_forecasted_average
+    - sensor.allergy_index_historical_average
+    - sensor.allergy_index_today
+    - sensor.allergy_index_tomorrow
+    - sensor.hline_1
+    - sensor.us_air_pollution_level
+    - sensor.us_air_quality_index
+    - sensor.us_main_pollutant
+    
+events:
+  name: Events Today
+  view: no
+  control: hidden
+  entities:
+    - sensor.work_commute
+    - sensor.home_commute
+    - calendar.bills__subscriptions
+    - calendar.friends_birthdays
+    - calendar.events
+    - calendar.taurence_salters_facebook_events
+   
+stocks:
+  name: Stocks
+  view: no
+  control: hidden
+  entities:
+    - sensor.google_alphabet_inc
+    - sensor.nvidia
+    - sensor.twitter
+    
+currency:
+  name: Exchange Rates
+  view: no
+  control: hidden
+  entities:
+    - sensor.usd_cad
+    - sensor.usd_mxn
+    - sensor.usd_mxn
+    - sensor.usd_eur
+    - sensor.usd_aud
+    - sensor.usd_ngn
+    - sensor.usd_zar
+    - sensor.usd_dzd
+    - sensor.usd_egp
+    - sensor.usd_mad
+    - sensor.usd_sdg
+    - sensor.usd_kes
+    - sensor.usd_aoa
+    - sensor.usd_lyd
+    - sensor.usd_tnd
+    - sensor.usd_cny
+    - sensor.usd_sgd
+    - sensor.usd_inr
+    - sensor.usd_jpy
+    - sensor.usd_sar
+    - sensor.usd_irr
+    - sensor.usd_brl
+    - sensor.usd_ars
+    
+cryptocurrency:
+  name: Cryptocurrency
+  view: no
+  control: hidden
+  entities:
+    - sensor.bitcoin
+    - sensor.ethereum
+    - sensor.xrp
+    - sensor.bitcoin_cash
+    - sensor.eos
+    - sensor.xlm
+    - sensor.litecoin
+    - sensor.ada
+    - sensor.usdt
+    - sensor.miota
+    - sensor.bitcoin_gold
+    - sensor.bitcoin_diamond
+    - sensor.bitcoin_private
+    - sensor.bitshares
+    - sensor.ethereum_classic
+ 
+users:
+  name: Users
+  view: yes
+  entities:
+    - group.ozone
+    - group.wolf
+    - group.nico
+    
+ozone:
+  name: Ozone
+  view: no
+  entities:
+    - device_tracker.tile
+    - calendar.main
+    - calendar.deadlines
+    - calendar.hard_appointments
+    - calendar.activities
+    - calendar.blank_time
+    - calendar.the_mack_chronicles
+    - sensor.alta_hr_battery
+    - sensor.weight
+    - sensor.bmi
+    - sensor.body_fat
+    - sensor.calories_bmr
+    - sensor.tracker_steps
+    - sensor.tracker_calories
+    - sensor.tracker_activity_calories
+    - sensor.tracker_distance
+    - sensor.tracker_floors
+    - sensor.tracker_elevation
+    - sensor.tracker_minutes_fairly_active
+    - sensor.tracker_minutes_lightly_active
+    - sensor.tracker_minutes_sedentary
+    - sensor.tracker_minutes_very_active
+    - sensor.minutes_after_wakeup
+    - sensor.resting_heart_rate
+    - sensor.sleep_start_time
+    - sensor.sleep_minutes_to_fall_asleep
+    - sensor.sleep_minutes_asleep
+    - sensor.awakenings_count
+    - sensor.sleep_minutes_awake
+    - sensor.sleep_time_in_bed
+    - sensor.sleep_efficiency
+    
+nico:
+  name: Nico
+  view: no
+  entities:
+  
+wolf:
+  name: Wolf
+  view: no
+  entities:
+
+    
+rooms:
+  name: Rooms
+  view: yes
+  entities:
+   - group.studio
+   - group.bedroom
+   - group.bathroom
+   - group.kitchen
+  
+studio:
+  name: Studio
+  view: no
+  control: hidden
+  entities:
+    - lock.home
+    - light.studio
+    - sensor.studio
+    - sensor.motion_studio
+    - sensor.studio_temperature
+    - sensor.studio_ambient_light
+    - switch.temperature
+    
+bedroom:
+  name: Bed
+  view: no
+  control: hidden
+  entities:
+    - light.bed
+    - switch.dehumidifier
+    
+bathroom:
+  name: Bathroom
+  view: no
+  control: hidden
+  entities:
+    - light.bathroom
+    - sensor.motion_bathroom
+    - sensor.bathroom_temperature
+    - sensor.bathroom_ambient_light
+    
+kitchen:
+  name: Kitchen
+  view: no
+  control: hidden
+  entities:
+    - light.kitchen
+    - sensor.motion_kitchen
+    - sensor.kitchen_temperature
+    - sensor.kitchen_ambient_light
+
+patio:
+  name: Patio
+  view: no
+  control: hidden
+  
+  
+    
+media:
+  name: Media
+  view: yes
+  entities:
+    - group.video
+    - group.audio
+    - group.downloads
+    - group.news
+    - group.pics
+    - group.games
+    - group.comics
+    
+video:
+  name: Videos
+  view: no
+  entities:
+    - media_player.tchaka
+    - media_player.falcon
+    - media_player.plex
+    
+audio:
+  name: Audio
+  view: no
+  entities:
+    - sensor.lastfm_ozonethegreat
+    - media_player.redwing
+    #- media_player.gpmdp
+    - media_player.spotify
+    
+downloads:    
+  name: Downloads
+  view: no
+  entities:
+    - sensor.sonarr_queue
+    - sensor.sonarr_series
+    - sensor.sonarr_upcoming
+ 
+security:
+  name: Security
+  view: yes
+  control: hidden
+  
+devices:  
+  name: Devices
+  view: yes
+  control: hidden
+  entities:
+    - group.hubs
+    - group.computers
+    - group.mobile_devices
+    
+hubs:
+  name: Hubs
+  view: no
+  control: hidden
+  entities:
+    - binary_sensor.obatala
+    - binary_sensor.shuri
+    - remote.harmony_hub
+    
+computers:
+  name: Computers
+  view: no
+  control: hidden
+  entities:
+    - group.ogun
+    - group.tchaka
+    - group.bishop
+    - group.ramonda
+    - group.bashenga
+  
+mobile_devices:
+  name: Mobile Devices
+  view: no
+  control: hidden
+  entities:
+    - group.blackpanther
+    - group.ironman
+    - group.blacklightning
+    
+  
+system:
+  name: System
+  view: yes
+  control: hidden
+  entities:
+    - group.network
+    - group.cpu
+    - group.automations
+    - group.scripts
+    
+network:
+  name: Network
+  view: no
+  control: hidden
+  entities:
+    - switch.pihole_temp_disable  
+    - sensor.ogunpihole
+    - sensor.pi_hole_version
+    - sensor.pihole_dns_unique_clients  
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_domains_blocked
+    - sensor.ipv4_address_eth0
+    - sensor.ipv6_address_eth0
+    - sensor.network_in_eth0
+    - sensor.network_out_eth0
+    - sensor.packets_in_eth0
+    - sensor.packets_out_eth0
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+    
+cpu:
+  name: CPU Stats
+  view: no
+  control: hidden
+  entities:
+    - sensor.processor_use
+    - sensor.memory_free
+    - sensor.memory_use_percent
+    - sensor.swap_free
+    - sensor.swap_use_percent
+    - sensor.disk_free_home
+    - sensor.disk_use_percent_home
+    - sensor.last_boot
+    - sensor.since_last_boot
+    
+automations:
+  name: Automations
+  view: no
+  control: hidden
+  
+scripts:
+  name: Scripts
+  view: no
+  control: hidden
+  

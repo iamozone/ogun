@@ -1,0 +1,98 @@
+    sensor.hline_1:
+     custom_ui_state_card: state-card-hline
+     config:
+       width: 90 --> in percents
+       height: 0 --> in pixels, adds to bordertop
+       backgroundcolor: white
+       bordertop: '1px solid black'
+    sensor.hline_2:
+     custom_ui_state_card: state-card-hline
+     config:
+       width: 90 --> in percents
+       height: 0 --> in pixels, adds to bordertop
+       backgroundcolor: white
+       bordertop: '1px dashed red'
+    sensor.hline_3:
+     custom_ui_state_card: state-card-hline
+     config:
+       width: 65 --> in percents
+       height: 0 --> in pixels, adds to bordertop
+       backgroundcolor: white
+       bordertop: '2px double green'
+    sensor.hline_4:
+     custom_ui_state_card: state-card-hline
+     config:
+       width: 85 --> in percents
+       height: 1 --> in pixels, adds to bordertop
+       backgroundcolor: white
+       bordertop: none
+       backgroundimage: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))
+
+    binary_sensor.floorplan:
+      custom_ui_state_card: state-card-floorplan
+      config: !include floorplan.yaml
+      
+    sensor.pihole_ads_percentage_today:
+      friendly_name: Percentage of Ad Traffic Blocked
+      unit_of_measurement: '%'
+      icon: mdi:ticket-percent
+
+    sensor.pihole_domains_being_blocked:
+      friendly_name: Total Domains Blocking
+      icon: mdi:do-not-disturb
+
+    sensor.pihole_dns_unique_clients:
+      friendly_name: Unique Clients
+      icon: mdi:desktop-classic
+
+    sensor.pihole_ads_blocked_today:
+      friendly_name: Ads Blocked Today
+      icon: mdi:do-not-disturb
+
+    sensor.pihole_dns_queries_today:
+      friendly_name: DNS Queries Today
+      icon: mdi:note-text
+
+    sensor.pihole:
+      friendly_name: Pi Hole Server
+      icon: mdi:filter-variant
+
+    group.pihole:
+      homebridge_hidden: true 
+      
+- platform: template
+    sensors:
+      pihole:
+        friendly_name: 'PiHole'
+        value_template: "{{ 'Online' if is_state('device_tracker.ogunpihole', 'home') else 'Offline' }}"
+
+      # pi_hole_version:
+      #   value_template: "{%- if states.sensor.pihole_version_current.state == states.sensor.pihole_version_latest.state -%}{{states.sensor.pihole_version_current.state}} {% else %}{{states.sensor.pihole_version_latest.state}} Available{% endif%}"
+      #   icon_template: >-
+      #     {% if states.sensor.pihole_version_current.state == states.sensor.pihole_version_latest.state %}
+      #       mdi:checkbox-marked
+      #     {% else %}
+      #       mdi:checkbox-blank-outline
+      #     {% endif %}
+
+# Pi-Hole switch
+switch:
+  - platform: command_line
+    switches:
+      pihole_temp_disable:
+        command_on: "curl -X GET 'http://192.168.10.11/admin/api.php?enable&auth='"
+        command_off: "curl -X GET 'http://192.168.10.11/admin/api.php?disable=3600&auth='"
+#        command_state: "curl -X GET 'http://192.168.10.11/admin/api.php?status'| grep enabled"
+#        value_template: "{{ value_json.status == 'enabled' }}
+
+# Aftership
+  sensor.aftership_sensor:
+    custom_ui_state_card: state-card-aftership
+    
+    
+# Custom Weather Card    
+   input_boolean.weather:
+   custom_ui_state_card: custom-weather-card
+   config:
+      weather: weather.yweather
+      sun: sun.sun    

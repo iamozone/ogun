@@ -1,0 +1,45 @@
+################################################################################
+# Switches
+################################################################################
+
+####################################################
+#                                                  #
+#             TP-Link Kasa                         #
+#                                                  #
+####################################################
+
+  - platform: tplink
+    host: !secret temp_ip
+    name: Temperature
+    
+  - platform: tplink
+    host: !secret dehumid_ip
+    name: Dehumidifier
+      
+####################################################
+#                                                  #
+#             WAKE ON LAN SWITCHES                 #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/components/switch.wake_on_lan/
+  - platform: wake_on_lan
+    name: TChaka
+    mac_address: "78:2b:cb:9f:60:cd"
+    host: 192.168.1.5
+    turn_off:
+      service: shell_command.htpc
+
+  - platform: wake_on_lan
+    name: Bishop
+    mac_address: "b8:ca:3a:8e:92:61"
+    host: 192.168.1.6
+    turn_off:
+      service: shell_command.desktop
+
+  - platform: wake_on_lan
+    name: Captain America
+    mac_address: "10:08:B1:E2:17:79"
+    host: 192.168.1.8
+    turn_off:
+      service: shell_command.laptop    

@@ -1,0 +1,33 @@
+## Lights ##
+
+lights_studio:
+  name: Studio
+  icon: mdi:food-variant
+  entities:
+  - input_boolean.studio_lights
+  - light.ceiling
+  - light.bookshelf
+  - light.tv
+  - light.desk
+  - light.right-floor
+  - light.left_floor
+
+lights_kitchen:
+  name: Living Room
+  entities:
+  - input_boolean.kitchen_lights
+  - light.kitchen1
+  - light.kitchen2
+
+lights_bedroom:
+  name: Bedroom
+  icon: mdi:hotel
+  entities:
+  - light.bedroom
+
+lights_bathrooms:
+  name: Bathrooms
+  entities:
+  - light.bathroom1
+  - light.bathroom2
+  - light.bathroom3

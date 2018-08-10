@@ -1,0 +1,18 @@
+################################################################################
+# Notifiers
+################################################################################
+
+# Pushover
+notify pushover:
+  - name: Pushover
+    platform: pushover
+    api_key: !secret push_api
+    user_key: !secret push_user
+
+# Join
+notify join:
+  - platform: joaoapps_join
+    api_key: !secret join_key
+    device_ids: !secret tchalla_id, !secret tstark_id, !secret jpierce_id, !secret lucas_id, !secret nkano_id, !secret steverod_id, !secret bash_id, !secret queen_id
+    device_names: !secret tchalla, !secret tstark, !secret jpierce, !secret lucas, !secret nkano, !secret steverod, !secret bash, !secret queen
+    name: Devices

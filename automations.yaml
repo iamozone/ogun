@@ -1,0 +1,19 @@
+####################################################
+#                                                  #
+#             Temperature                          #
+#                                                  #
+####################################################  
+  - alias: "Cool down when hot"
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.temp
+      above: '21.1111'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'device_tracker.tile'
+          state: 'home'
+    action:
+      service: switch.turn_on
+      entity_id: switch.temperature

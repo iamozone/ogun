@@ -1,0 +1,125 @@
+media_player.falcon:
+  config_entry_id: ce39b9b86451443391b8a5306f69ce00
+  name: Falcon
+  platform: cast
+  unique_id: 68af7f5e-c353-a49d-16ee-a10226386f86
+media_player.redwing:
+  config_entry_id: ce39b9b86451443391b8a5306f69ce00
+  name: Redwing
+  platform: cast
+  unique_id: d99911f6-a30c-8bec-6b14-d4f61b4c77d9
+media_player.whole_home_music:
+  config_entry_id: ce39b9b86451443391b8a5306f69ce00
+  name: Whole Home
+  platform: cast
+  unique_id: 16e9399d-47df-4082-8e74-51cedde8b5d7
+media_player.vixen:
+  config_entry_id: ce39b9b86451443391b8a5306f69ce00
+  name: VIxen
+  platform: cast
+  unique_id: 71161693-6ca2-5fbc-c1d2-2825331a8727
+media_player.witchblade:
+  config_entry_id: ce39b9b86451443391b8a5306f69ce00
+  name: Witchblade
+  platform: cast
+  unique_id: f6026376-04ef-2665-5775-20f24235296b
+light.kitchen_2:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:19:02:07-0b
+light.right_floor:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:6f:08:e8-0b
+light.bathroom_2:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:98:d7:4f-0b
+light.corner:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:6c:2a:34-0b
+light.left_floor:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:82:b4:ab-0b
+light.ceiling:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:7c:92:ea-0b
+light.bathroom_3:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:bb:2c:03-0b
+light.bed:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:f9:76:28-0b
+light.desk:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:41:be:ae-0b
+light.kitchen_1:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:07:3c:58-0b
+light.tv:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:ad:94:68-0b
+light.bathroom_1:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:98:dc:a8-0b
+light.bookshelf:
+  config_entry_id: b5b16f43884546df92e2cf0f94d24c14
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:41:eb:2c-0b
+media_player.lg_g_pad_x_80:
+  config_entry_id:
+  name: Iron-Man
+  platform: plex
+  unique_id: d59c33f600f2b442-com-plexapp-android
+sensor.cold__flu_forecasted_average:
+  config_entry_id:
+  name:
+  platform: pollen
+  unique_id: 98122_disease_average_forecasted
+sensor.allergy_index_forecasted_average:
+  config_entry_id:
+  name:
+  platform: pollen
+  unique_id: 98122_allergy_average_forecasted
+sensor.allergy_index_today:
+  config_entry_id:
+  name:
+  platform: pollen
+  unique_id: 98122_allergy_index_today
+sensor.allergy_index_yesterday:
+  config_entry_id:
+  name:
+  platform: pollen
+  unique_id: 98122_allergy_index_yesterday
+sensor.allergy_index_historical_average:
+  config_entry_id:
+  name:
+  platform: pollen
+  unique_id: 98122_allergy_average_historical
+sensor.allergy_index_tomorrow:
+  config_entry_id:
+  name:
+  platform: pollen
+  unique_id: 98122_allergy_index_tomorrow

@@ -1,0 +1,317 @@
+######### Configurator #########
+
+{
+  "username": "ozone",
+  "password": "Su93r$@v0",
+  "ssl": true,
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "allowed_networks": [
+    "192.168.0.0/16",
+    "172.30.0.0/16"
+  ],
+  "banned_ips": [
+    "8.8.8.8"
+  ],
+  "banlimit": 0,
+  "ignore_pattern": [
+    "__pycache__"
+  ],
+  "dirsfirst": false,
+  "enforce_basepath": false,
+  "notify_service": "persistent_notification.create"
+}
+
+######### IDE #########
+
+{
+  "log_level": "info",
+  "username": "ozone",
+  "password": "Su93r$@v0",
+  "ssl": true,
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "packages": [],
+  "init_commands": []
+}
+
+######### SSH & Terminal #########
+{
+  "log_level": "info",
+  "ssh": {
+    "enable": true,
+    "port": 22,
+    "username": "ozone",
+    "password": "Su93r$@v0",
+    "authorized_keys": [],
+    "sftp": false,
+    "compatibility_mode": false,
+    "allow_agent_forwarding": false,
+    "allow_remote_port_forwarding": false,
+    "allow_tcp_forwarding": false
+  },
+  "web": {
+    "enable": true,
+    "port": 7681,
+    "username": "ozone",
+    "password": "Su93r$@v0",
+    "ssl": true,
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem"
+  },
+  "share_sessions": true,
+  "packages": [],
+  "init_commands": []
+}
+######### Samba #########
+{
+  "workgroup": "WORKGROUP",
+  "name": "Ogun",
+  "guest": true,
+  "map": {
+    "config": true,
+    "addons": true,
+    "ssl": true,
+    "share": true,
+    "backup": true
+  },
+  "username": "ozone",
+  "password": "Su93r$@v0",
+  "interface": "eth0",
+  "allow_hosts": [
+    "10.0.0.0/12",
+    "172.16.0.0/32",
+    "192.168.0.0/32",
+    "192.168.1.0/32"
+  ]
+}
+
+######### dnsmasq #########
+{
+  "defaults": [
+    "8.8.8.8",
+    "8.8.4.4"
+  ],
+  "forwards": [
+    {
+      "domain": "shuri.local",
+      "server": "192.168.1.4"
+    },
+    {
+      "domain": "tchaka.local",
+      "server": "192.168.1.9"
+    },
+    {
+      "domain": "bishop.local",
+      "server": "192.168.1.10"
+    },
+    {
+      "domain": "ramonda.local",
+      "server": "192.168.1.11"
+    }
+  ],
+  "hosts": [
+    {
+      "host": "ogun.duckdns.org",
+      "ip": "192.168.1.2"
+    }
+  ]
+}
+
+######### DuckDns #########
+
+{
+  "lets_encrypt": {
+    "accept_terms": true,
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem"
+  },
+  "token": "001b39c0-0fde-416b-91d0-ace8bdd20ee7",
+  "domains": [
+    "ogun.duckdns.org"
+  ],
+  "seconds": 300
+}
+
+######### NGNIX SSL Proxy #########
+
+{
+  "domain": "ogun.duckdns.org",
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "hsts": "max-age=31536000; includeSubDomains",
+  "customize": {
+    "active": false,
+    "default": "nginx_proxy_default*.conf",
+    "servers": "nginx_proxy/*.conf"
+  }
+}
+
+######### Tor #########
+{
+  "log_level": "info",
+  "socks": true,
+  "hidden_services": true,
+  "stealth": true,
+  "client_names": [
+    "black_panther",
+    "iron-man",
+    "bashenga",
+    "black_lightning"
+  ],
+  "ports": [
+    "8123:80",
+    "22"
+  ]
+}
+
+
+######### PiHole #########
+
+{
+  "log_level": "info",
+  "password": "Su93r$@v0",
+  "update_lists_on_start": true,
+  "http_port": 80,
+  "https_port": 443,
+  "dns_port": 53,
+  "ssl": true,
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "interface": "eth0",
+  "ipv6": true,
+  "ipv4_address": "192.168.1.2",
+  "ipv6_address": "fe80:0000:0000:0000:d395:dbac:eb92:0130",
+  "virtual_host": "ogun.duckdns.org",
+  "hosts": []
+}
+
+######### Node-RED #########
+
+{
+  "log_level": "info",
+  "credential_secret": "kmxSfZSPlWRpUATm",
+  "users": [
+    {
+      "username": "ozone",
+      "password": "Su93r$@v0",
+      "permissions": "*"
+    }
+  ],
+  "http_node": {
+    "username": "ozone",
+    "password": "Su93r$@v0"
+  },
+  "http_static": {
+    "username": "ozone",
+    "password": "Su93r$@v0"
+  },
+  "port": 1880,
+  "ssl": true,
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "require_ssl": true,
+  "system_packages": [],
+  "npm_packages": ["node-red-contrib-home-assistant", "node-red-contrib-home-assistant-ws", "node-red-contrib-google-action", "node-red-node-google", "node-red-contrib-shorturl", "node-red-contrib-viseo-dialogflow", "node-red-contrib-viseo-google-maps", "node-red-contrib-viseo-google-youtube", "node-red-contrib-google", "node-red-contrib-google-action-dialogflow-http", "node-red-contrib-google-tts", "node-red-contrib-google-action-dialogflow", "node-red-contrib-google-home-notify", "node-red-node-web-nodes", "node-red-node-youtube", "node-red-contrib-ifttt", "node-red-contrib-facebook-messenger-writer", "node-red-contrib-join-joaoapps", "node-red-contrib-gpio", "node-red-contrib-alexa", "node-red-contrib-alexa-home-skill", "node-red-contrib-alexa-home", "node-red-contrib-viseo-amazon", "node-red-contrib-huemagic", "node-red-contrib-tplink-iot", "node-red-contrib-kodi", "node-red-contrib-plex"],
+  "init_commands": []
+}
+
+######### Mosquitto #########
+
+{
+  "plain": true,
+  "plain_websockets": true,
+  "ssl": true,
+  "ssl_websockets": false,
+  "anonymous": false,
+  "logins": [{"username": "ozone", "password": "Su93r$@v0"}],
+  "customize": {
+    "active": false,
+    "folder": "mosquitto"
+  },
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem"
+}
+
+######### MariaDB #########
+
+{
+  "databases": [
+    "ogun"
+  ],
+  "logins": [
+    {
+      "username": "ozone",
+      "host": "%",
+      "password": "Su93r$@v0"
+    }
+  ],
+  "rights": [
+    {
+      "username": "ozone",
+      "host": "%",
+      "database": "ogun",
+      "grant": "ALL PRIVILEGES ON"
+    }
+  ]
+}
+
+######### InfluxDB #########
+
+{
+  "log_level": "info",
+  "username": "ozone",
+  "password": "Su93r$@v0",
+  "auth": true,
+  "ssl": true,
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "ipv6": true
+}
+
+######### Grafana #########
+
+{
+  "log_level": "info",
+  "ssl": true,
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "plugins": [],
+  "env_vars": []
+}
+
+######### Git Pull #########
+
+{
+  "deployment_key": [],
+  "deployment_key_protocol": "rsa",
+  "deployment_user": "ozone",
+  "deployment_password": "hyphey83",
+  "git_branch": "master",
+  "git_command": "pull",
+  "git_remote": "origin",
+  "repository": "https://github.com/iamozone/ogun.git",
+  "auto_restart": true,
+  "repeat": {
+    "active": false,
+    "interval": 300
+  }
+}
+
+######### Google Assistant #########
+
+{
+google_assistant:
+  project_id: Ogun
+  client_id: 222613763373-2k3fg15292evetvntojgbel1fsfamhe4.apps.googleusercontent.com
+  access_token: hXtO7XydbBKQo4aLWLWE
+  agent_user_id: taurence.salter@gmail.com
+  api_key: AIzaSyAex2DyjdpG_XHe9KscOslxJ2OzjPhiEmQ
+    exposed_domains:
+    - group
+    - scene
+    - script
+	- fan
+	- media_player
+	- climate
+}

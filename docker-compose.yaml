@@ -1,0 +1,230 @@
+version: '3.7'
+
+services:
+pihole:
+    container_name: pihole
+    image: diginc/pi-hole
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "$80:80/tcp"
+    environment:
+      # enter your docker host IP here
+      ServerIP: "192.168.1.1"
+      TZ: "America/Los_Angeles"
+      DNS1: "1.1.1.1"
+      DNS2: "1.0.0.1"
+    volumes:
+      - "/opt/docker/pihole:/etc/pihole"
+      - "/opt/docker/dnsmasq.d:/etc/dnsmasq.d"
+      - "/opt/docker/log/pihole.log:/var/log/pihole.log"
+    restart: always
+influxdb:
+  image: influxdb:latest
+  container_name: influxdb
+  ports:
+    - "8083:8083"
+    - "8086:8086"
+    - "8090:8090"
+    - "25826:25826/udp"
+  env_file:
+    - 'env.influxdb'
+  environment:
+    - INFLUX_GRAPHITE_ENABLED='true'
+  volumes:
+    # Data persistency
+    # sudo mkdir -p /opt/docker/influxdb/data
+    - /opt/docker/influxdb/data:/var/lib/influxdb
+  restart: always
+
+telegraf:
+  image: telegraf:latest
+  container_name: telegraf
+  links:
+    - influxdb
+  volumes:
+    - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+
+grafana:
+  image: grafana/grafana:latest
+  container_name: grafana
+  ports:
+    - "3000:3000"
+  env_file:
+    - 'env.grafana'
+  links:
+    - influxdb
+  volumes:
+    # Data persistency
+    # sudo mkdir -p /opt/docker/docker/grafana/data; chown 472:472 /opt/docker/grafana/data
+    - /opt/docker/grafana/data:/var/lib/grafana
+    - /opt/docker/grafana:/etc/grafana:rw
+  restart: always
+  depends_on:
+    - "influxdb"
+
+chronograf:
+    container_name: chronograf
+    restart: unless-stopped
+    image: chronograf
+    depends_on:
+      - "influxdb"
+    volumes:
+      - /opt/docker/chronograf:/var/lib/chronograf
+    ports:
+      - "8888:8888"
+speedtest:
+    container_name: speedtest
+    restart: unless-stopped
+    image: atribe/speedtest-for-influxdb-and-grafana
+    depends_on:
+      - "influxdb"
+    volumes:
+      - /opt/docker/speedtest/config.ini:/src/config.ini
+
+node-red:
+    container_name: node-red
+    image: nodered/node-red-docker:rpi-v8
+    ports:
+      - 1880:1880
+    volumes:
+      - /opt/docker/node-red:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    restart: "no" # because the exit code(s) are wrong
+    depends_on:
+      mosquitto:
+        condition: service_started
+      mqtt-bridge:
+        condition: service_started
+      homeassistant:
+        condition: service_healthy 
+    
+mosquitto:
+  container_name: mosquitto (MQTT)
+  image: robotany/mosquitto-rpi
+  ports:
+    - "1883:1883"
+    - "8883:8883"
+  volumes:
+    - /opt/docker/data/mosquitto.conf:/etc/mosquitto/mosquitto.conf
+    - /opt/docker/data/pwfile:/etc/mosquitto/pwfile
+    - /opt/docker/data:/var/lib/mosquitto
+    - /opt/docker/mosquitto/log:/mosquitto/log
+    - /opt/docker/mosquitto/data:/mosquitto/data
+    - /etc/localtime:/etc/localtime:ro
+  restart: always
+  
+mqtt-bridge:
+    container_name: mqtt-bridge
+    image: stjohnjohnson/smartthings-mqtt-bridge
+    ports:
+      - 8080:8080
+    volumes:
+      - /opt/docker/mqtt-bridge:/config
+    restart: always
+    depends_on:
+      homeassistant:
+        condition: service_healthy
+        
+portainer:
+    container_name: portainer
+    image: portainer/portainer
+    ports:
+      - 9000:9000
+    volumes:
+      - /opt/docker/portainer:/data:rw
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: "no" # because the exit code(s) are wrong
+    #Automatically choose 'Manage the Docker instance where Portainer is running' by adding <--host=unix:///var/run/docker.sock> to the command
+    command: --templates http://templates/templates.json
+    
+mongo:
+    container_name: mongo
+    restart: unless-stopped
+    image: mongo
+    volumes:
+      - /opt/docker/mongo:/data/db
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "27017:27017"
+      
+postdb1:
+    container_name: postdb1
+    restart: unless-stopped
+    image: postgres:9.6
+    volumes:
+      - /opt/docker/postgresql:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - POSTGRES_USER='ozone'
+      - POSTGRES_PASSWORD='Su93r$@v0'
+    ports:
+      - "5432:5432"
+
+watchtower:
+    image: v2tec/watchtower
+    container_name: "portainer-watchtower"
+    command: --cleanup portainer-app portainer-watchtower portainer/templates
+    networks:
+      - local
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      
+syncthing:
+    container_name: hass-sync
+    restart: unless-stopped
+    image: linuxserver/syncthing
+    volumes:
+      - /opt/docker/syncthing:/config
+      - /opt/docker/hass-config:/sync
+      - /etc/localtime:/etc/localtime:ro
+    network_mode: host
+    environment:
+      - PGID=0
+      - PUID=0
+
+organizr:
+    container_name: organizr
+    image: lsioarmhf/organizr
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /opt/docker/organizr:/config:rw
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    environment:
+      - PGID=1000
+      - PUID=1000
+    restart: always
+    
+dockermon:
+    container_name: dockermon
+    image: tribunex/ha-dockermon-pi
+    ports:
+      - 8126:8126
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/docker/dockermon:/config
+    restart: on-failure
+    
+homeassistant:
+    container_name: homeassistant
+    image: homeassistant/hassio-build
+    network_mode: "host"
+    volumes:
+      - /opt/docker/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0:rwm
+      - /dev/ttyUSB1:/dev/ttyUSB1:rwm
+      - /dev/ttyACM0:/dev/ttyACM0:rwm
+    restart: on-failure
+    network_mode: host
+    priviledged: true
+    depends_on:
+      influxdb:
+        condition: service_healthy
+      mosquitto:
+        condition: service_started

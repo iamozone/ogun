@@ -1,0 +1,20 @@
+################################################################################
+# Media Players
+################################################################################  
+
+media_player:
+# Spotify
+  - platform: spotify
+    client_id: !secret spotify_id
+    client_secret: !secret spotify_secret
+    aliases:
+        abc123def456: 'Studio'
+        9183abas000: 'Bathroom'
+# Kodi        
+  - platform: kodi
+    host: !secret kodi_ip
+    port: !secret kodi_port
+    name: Cyborg
+    username: !secret kodi_user
+    password: !secret kodi_pass
+    enable_websocket: true

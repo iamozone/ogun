@@ -1,0 +1,27 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "dependencies": {
+        "node-red-contrib-august-home": "0.0.1",
+        "node-red-contrib-camerapi": "0.0.38",
+        "node-red-contrib-chromecast": "0.0.1",
+        "node-red-contrib-ecolect": "~1.0.4",
+        "node-red-contrib-google": "~0.2.0",
+        "node-red-contrib-google-action": "~1.2.1",
+        "node-red-contrib-google-action-dialogflow": "~0.5.4",
+        "node-red-contrib-google-action-dialogflow-http": "~0.5.6",
+        "node-red-contrib-google-tts": "~1.0.1",
+        "node-red-contrib-home-assistant-ws": "0.0.1",
+        "node-red-contrib-huemagic": "~1.5.6",
+        "node-red-contrib-ifttt": "~0.1.0",
+        "node-red-contrib-internetattv": "~0.1.6",
+        "node-red-contrib-kodi": "~0.2.7",
+        "node-red-contrib-tplink-iot": "~0.1.8",
+        "node-red-contrib-tplink-smarthome": "~0.1.1",
+        "node-red-contrib-wifiscan": "0.0.2",
+        "node-red-node-google": "~0.1.4",
+        "node-red-node-web-nodes": "~0.3.2",
+        "node-red-node-youtube": "0.0.5"
+    }
+}

@@ -1,0 +1,341 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Kingdom of Wakanda
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: !secret time_zone
+  # external files
+  frontend: !include frontend.yaml
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+
+################################################################################
+# Updater
+################################################################################      
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+  
+################################################################################
+# Enablers
+################################################################################
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables configuration UI
+config:
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    pn58c8000_samsung_dtv_rcr
+  
+# Enable iOS frontend
+#ios:
+
+# Home Assistant Cloud
+cloud:
+  google_actions:
+    filter:
+      exclude_entities:
+        - group.all_lights
+        - media_player.falcon
+        - media_player.redwing
+        - media_player.storm
+        - media_player.vixen
+        - media_player.whole_home_music
+        - remote.harmony_hub
+        - media_player.pn58c8000_samsung_dtv_rcr
+        
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enable logging
+logger:
+  
+# Enable Ffmpeg
+ffmpeg:
+
+# Enable DialogFlow
+dialogflow:
+
+#zwave:
+  #usb_path: /dev/ttyACM0
+#  new_entity_ids: true
+#  config_path: /srv/homeassistant/lib/python3.4/site-packages/python_openzwave/ozw_config
+  #polling_interval: 30000
+  
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+   
+# API
+api:
+    
+# Python Scripts
+#python_script:
+  
+################################################################################
+# Local Access
+################################################################################
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  #base_url: !secret base_url
+  #ssl_certificate: !secret ssl_certificate
+  #ssl_key: !secret ssl_key
+  trusted_networks:
+    - 192.168.1.0/32
+    - 127.0.0.1
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+  use_x_forwarded_for: True
+  cors_allowed_origins:
+
+# DuckDNS
+duckdns:
+  domain: ogun
+  access_token: !secret duck_token
+  
+# Mosquitto Broker
+mqtt:
+  broker: 127.0.0.1
+  client_id: Ogun
+  username: !secret username
+  password: !secret password
+ 
+# MariaDB
+#  db_url: !secret maria_url
+ 
+# InfluxDB 
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: !secret influx_db
+  username: !secret username
+  password: !secret alt_password
+  max_retries: 3
+  ssl: true
+  verify_ssl: true
+  default_measurement: state
+     
+################################################################################
+# OAuth Components
+################################################################################
+
+# Ifttt
+ifttt:
+   key: !secret ifttt
+
+# Wink Hub
+wink:
+
+# August Smart Lock
+august:
+  login_method: phone
+  username: !secret august_user
+  password: !secret august_pass
+  
+# Phillips Hue  
+hue:
+  bridges:
+    - host: !secret hue_ip
+      allow_unreachable: true
+      allow_hue_groups: false
+      
+# emulated_hue:
+#   host_ip: 192.168.1.10
+#   listen_port: 8300
+#   expose_by_default: false      
+    
+# Calendar
+google:
+  client_id: !secret gcal_id
+  client_secret: !secret gcal_secret
+  track_new_calendar: true
+ 
+################################################################################
+# Customization
+################################################################################
+
+### IFrames  ###
+panel_iframe:
+  pihole:
+    title: Pi-hole
+    icon: mdi:block-helper
+    url: https://ogun.local/admin/index.php
+  grafana:
+    title: Grafana
+    icon: mdi:chart-timeline
+    url: https://ogun.local:3000/login
+  influxdb:
+    title: InfluxDB
+    icon: mdi:chart-areaspline
+    url: https://ogun.local:8888/sources/0/status
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: https://ogun.local:3218/
+  dashboard:
+    title: HADashboard
+    icon: mdi:codepen
+    url: https://ogun.local:5050/   
+  ide:
+    title: IDE
+    icon: mdi:code-array
+    url: https://ogun.local:8321/ide.html
+  nodered:
+    title: Node-RED
+    icon: mdi:sitemap
+    url: https://ogun.local:1880/
+  terminal:
+    title: Terminal
+    icon: mdi:console
+    url: https://ogun.local:7681/
+  happy_bubbles:
+    title: Happy Bubbles
+    icon: mdi:crosshairs-gps
+    url: https://ogun.local:5555/
+  wink:
+    title: Wink
+    icon: mdi:home-automation
+    url: https://winkathome.net/Home.aspx
+    
+### Panels ###
+panel_custom:
+  - name: router
+    sidebar_title: Linksys Smart Wifi
+    sidebar_icon: mdi:router
+    webcomponent_path: !secret linksys
+    config:
+      email_address: !secret linksys_user
+      password: !secret linksys_pass
+    
+    
+### Weblinks ###
+weblink:
+  entities:
+    - name: Home Assistant Webpage
+      url: https://home-assistant.io/
+      icon: mdi:home-automation
+    - name: Home Assistant Forum
+      url: https://community.home-assistant.io/
+      icon: mdi:forum
+    - name: Home Assistant Chat
+      url: https://discordapp.com/channels/330944238910963714/330944238910963714
+      icon: mdi:wechat
+    - name: Reddit
+      url: https://www.reddit.com/r/homeassistant/
+      name: mdi:reddit
+    - name: Facebook
+      url: https://www.facebook.com/groups/HomeAssistant/
+      icon: mdi:facebook
+    - name: BRUH Automation
+      url:  https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w
+      icon: mdi:youtube
+    - name: BurnsHA
+      url: https://www.youtube.com/channel/UCSKQutOXuNLvFetrKuwudpg
+      icon: mdi:youtube
+    - name: DrZzs
+      url: https://www.youtube.com/channel/UC7G4tLa4Kt6A9e3hJ-HO8ng
+      icon: mdi:youtube
+    - name: The Hookhup
+      url: https://www.youtube.com/channel/UC2gyzKcHbYfqoXA5xbyGXtQ
+      icon: mdi:youtube
+    - name: DIY Futurism
+      url: https://diyfuturism.com/
+      icon: mdi:web
+    - name: Smarthome Hobby
+      url: https://smarthomehobby.com/
+      icon: mdi:web
+      
+################################################################################
+# Components
+################################################################################ 
+
+# Track the sun
+sun:
+
+# Enables a map showing the location of tracked devices
+map:
+
+weather:
+  - platform: darksky
+    api_key: !secret dark_key
+    units: us
+
+camera:
+  - platform: generic
+    still_image_url: 'http://api.wunderground.com/api/b97162f1099f16d3/animatedradar/animatedsatellite/q/WA/Seattle.gif'
+    name: Wunderground Radar      
+    
+# Text to speech
+tts:
+  - platform: google
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 3600
+  - platform: amazon_polly
+    aws_key: !secret aws_key
+    aws_secret: !secret aws_secret
+    name: polly
+    # English US Female
+    voice: Salli
+    # English UK Female
+    # voice: Amy       
+
+# Zeroconf/Avahi/Bonjour
+zeroconf:    
+    
+# Wake On Lan
+wake_on_lan:
+
+# UPnP
+#upnp:
+
+proximity:
+  home:
+    devices:
+      - device_tracker.tile
+    tolerance: 50
+    unit_of_measurement: mi 
+    
+# Enable Recorder with MariaDB
+recorder:
+  db_url: !secret maria_url    
+
+################################################################################
+# Includes
+################################################################################
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+zone: !include zones.yaml
+sensor: !include sensors.yaml
+#binary_sensor: !include binary_sensors.yaml
+#device_tracker: !include device_tracker.yaml
+switch: !include switches.yaml
+panel_custom: !include panel_custom.yaml
+#light: !include lights.yaml
+#scene: !include scenes.yaml
+#weather: !include weather.yaml
+#notifications: !include notification.yaml

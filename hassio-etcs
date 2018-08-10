@@ -1,0 +1,451 @@
+Repos:
+https://github.com/korylprince/hassio-caddy
+https://github.com/vkorn/hassio-addons
+https://github.com/sytone/hassio-addons
+https://github.com/ohmer1/hassio-addons
+https://github.com/hassio-addons/repository
+https://github.com/james-fry/hassio-addons
+https://github.com/notoriousbdg/hassio-addons
+https://github.com/bestlibre/hassio-addons
+https://github.com/neffs/hassio-addons
+https://github.com/nalipaz/hassio-addons
+https://github.com/greylurk/hassio-custom-addons
+https://github.com/jkeljo/hassio-addons
+https://github.com/danielperna84/hassio-addons
+https://github.com/balloob/hassio-addon-experiments
+https://github.com/olivierguerriat/hassio-addons
+https://github.com/matemaciek/hassio-addons
+https://github.com/Tommatheussen/hassio-addons
+https://github.com/mpneuried/hassio-custom-addons
+https://github.com/mKeRix/hassio-repo
+https://github.com/maartenpaauw/home-assistant-community-themes
+https://github.com/AndBobsYourUncle/hassio-addons
+https://github.com/asciinaut/hassio-addons
+https://github.com/HerrHofrat/hassio-addons
+https://github.com/pschmitt/hassio-addons
+https://github.com/hassmart/hassmart-addons
+https://github.com/pantomax/hassio-addons
+https://github.com/neroxps/hassio-addons
+https://github.com/gollo/hassio-addons
+https://github.com/asciinaut/hassio-addons
+https://github.com/dale3h/hassio-addons
+https://github.com/danielwelch/hassio-addons
+https://github.com/daniel-mrd-andersson/hassioaddons
+https://github.com/ghiglie/hassio-addons
+https://github.com/editter/hassio-addons
+https://github.com/marthoc/hassio-addons
+https://github.com/danimtb/dasshio
+https://github.com/odinuge/hassio-addons    
+https://github.com/Romkabouter/hassio-addons
+https://github.com/fredrikbaberg/hassio-addons
+https://github.com/victorcerutti/hassio-addons
+https://github.com/brendena/hassio-addons   
+https://github.com/mcolyer/hassio-addons
+https://github.com/PaulFinch/hassio-addons
+https://github.com/lidicn/hassio-addons
+https://github.com/Wedjaa/hassio
+https://github.com/swissglider/hassio-addons
+https://github.com/MartyTremblay/hassio-addons
+https://github.com/goyney/hassio-addon-ser2sock
+https://github.com/faagerritsen78/hassio-addons
+https://github.com/ccarrizosa/my-hassio-addons
+https://github.com/danrspencer/hassio-addons
+https://github.com/deisi/hassio-addons
+https://github.com/halkeye/hassio-addons
+https://github.com/halkeye/hassio-addons
+https://github.com/able99/minik-hassio-addons
+https://github.com/cybertza/hassio-addons
+https://github.com/pilotak/hassio-addons
+https://github.com/thibmaek/hassio-addons
+https://github.com/josephyancey/hassio-addons
+https://github.com/AstroViking/hassio-addons
+https://github.com/lokiberra/hassio-addons
+https://github.com/a-r-j-a-n/hassio-addons
+
+Addons:
+https://github.com/pkozul/ha-floorplan
+https://github.com/dale3h/hue-mqtt-bridge
+https://github.com/Lentron/Janet---Home-Assistant
+https://github.com/Koenkk/zigbee2mqtt
+https://github.com/danielwelch/hassio-zigbee2mqtt
+https://github.com/custom-components/sensor.untapped
+https://github.com/michaelmcarthur/GoogleGeocode-HASS
+https://github.com/synesthesiam/rhasspy-assistant
+https://github.com/home-assistant/homebridge-homeassistant
+https://github.com/dale3h/hassctl
+https://github.com/tr1plus/ha-aftership
+
+Join Linux
+"http://autoremotejoaomgcd.appspot.com/registerpc?key=303d70b2d1f74dbf9e90a071b9dcabb1&name=Ogun&id=Pi8EbIOBMX&type=linux&publicip=wakandazone.duckdns.org&localip=$(sudo ifconfig eth0 |grep "inet addr" |awk '{print $2}' |awk -F: '{print $2}')"
+
+Lux
+Example                                 Lux               MeasuredValue
+Overcast moonless night sky              0.0001                  0
+Outdoor: Bright moonlight                1                       1
+Home: Night light                        2                    3000
+Home: Dimmed light                      10                   10000
+Home: ‘Cosy’ living room                50                   17000
+Home: ‘Normal’ non-task light          150                   22000
+Home: Working / reading                350                   25500
+Home: Inside daylight                  700                   28500
+Home: Maximum to avoid glare          2000                   33000
+Outdoor: Clear daylight            > 10000                 > 40000
+Outdoor: direct sunlight            120000                   51000
+
+IP Assignments
+M'Baku - Router: 48:F8:B3:FF:5E:65 - 192.168.1.1
+Ogun - Pi: B8:27:EB:58:04:5C - 192.168.1.2/fe80:0000:0000:0000:4c33:4c90:54f5:a49f
+Obatala - Wink: 34:23:BA:EF:DB:A9 - 192.168.1.3
+Shuri - Hue: 00:17:88:71:CF:85 - 192.168.1.4
+Bashenga - B8:27:EB:B1:BE:29 - 192.162.1.5/2601:602:8701:d1e1:1627:3980:645b:e5c9
+Killmonger - August: 28:24:FF:E9:EE:02 - 192.168.1.6
+Nakia - Harmony: 00:04:20:EA:B3:64 - 192.168.1.7
+N'Jobu - NAS: 00:D0:B8:17:02:64 - 192.168.1.8
+Luke Cage - Printer: 00:1E:8F:86:B1:24 - 192.168.1.9
+T'Chaka - HTPC: D4:BE:D9:B8:CB:F3 - 192.168.1.10
+Bishop - Workstation: 90:B1:1C:87:1F:90 - 192.168.1.11
+Ramonda - iMac: - 192.168.1.12
+Vibraxas - Xbox: B4:AE:2B:14:44:DD - 192.168.1.13
+Akeja - Playstation 4:  - 192.168.1.14
+Zuni - Shield TV: - 192.168.1.15
+Storm - Home: F4:F5:D8:DA:1E:2C- 192.168.1.16
+Vixen - Home Mini: 48:D6:D5:61:7A:29 - 192.168.1.17
+Falcon - Video: F4:F5:D8:42:27:9A - 192.168.1.18
+Redwing - Audio: 54:60:09:EC:F8:28 - 192.168.1.19
+Dora Milaje - Smart Plugs
+  Okoye: 50:C7:BF:AB:42:DF - 192.168.1.20
+  Ayo: 50:C7:BF:A6:D7:5D - 192.168.1.21
+Mira - TV: E4:E0:C5:6C:D5:94 - 192.168.1.22
+Black Panther - FC:2D:5E:DE:F5:7D - 192.168.1.23
+Iron-Man - 00:0A:F5:64:39:34 - 192.168.1.24
+Captain America - CA:76:A6:03:AC:09 - 192.168.1.25
+Black Lightning - B4:7C:9C:92:CC:E8 - 192.168.1.26
+Yuri - Aria Scale: 20:F8:5E:AC:DC:94 - 192.168.1.27
+
+
+Hass Credentials
+pi: Hy9#39 $@vA9E
+ozone: b0$$h066
+samba: Su93r $@v0 
+
+Hue Api: FSjhAdmjX8bMhPbMXrK6eD14gPILdzrmFrhJlZRW
+Studio sensor - 3
+  Temp - 2
+  Light -4
+Kitchen sensor - 9
+  Temp - 8
+  Light - 10
+Bathroom sensor - 6
+  Temp - 5
+  Light - 7
+
+node-red credential secret: kmxSfZSPlWRpUATm
+
+wink id: 8Q3TX9SvqJLrlD4ZxcrS1fBELBSeMR3H
+wink secret: doLNWlLrEQoN2sHvXzQqO0huL0ZQvCVz
+
+Github Access token: c3a64fbf8a05753167eff1726642628fa2795726
+Personal Access Key: 
+git@github.com:iamozone/ogun.git
+https://github.com/iamozone/ogun
+
+SSH:
+Ogun Key: ssh-rsa   AAAAB3NzaC1yc2EAAAABJQAAAgEAkrVNzAPt9qYXPsOyt9ZTc+S8AplGnjFJdDRrLYLC86c1J09lFCL/hZLXIE0itxVIHFBHrMfMPxHyzT9p8yUfCIRHaRVUOuPNoC2YKK5+mqPawNNEv6bhkIf7P8Z05hife9YHd25XkC3VCLTugD/6nD4ncr525Pq0xqS6pP3OnHj89QFgd6JZdHhwLm+9kwYVlaxg3LlWAap9rysj1chb4lYsYhYC6QyLo4OetgJ9aaC2t4BpvXtA5oza5FTZR2Dw0jK6qOWsNs4Iuosj9dlQ6ABagvRmj81why6BcopwVWSCSNxlYT3ZHOWtq3FB7wHuUve2Rfkj463vICRSYAYdW8MFflhwVWcv91X8uLBzA9Q+whro4m7Kainv8XmIJTt5ikHgGQRkSdV6vuOzB29TNzi1jKtedXfTiyaCaNzeigLqZVp+0iMqVh5cq9SrYwTbRPEfrwjs//qLS7Js3kWnfUXNExRYn9I36jMuyMFdFaCaBy3895e/+IEl9jv1+yMT34t5dXI3GBh1Dn/Kb1vSj+Ek/gU/c16bXLNozc6tS0Q0nQYKFc6hDp2Qd4ZRG1W+ARHOCHRIfRu/pCzHKfPC6gQpi0ndwEQb4ibKiloNBJRRg9QwRe1Soktu144jGwKseS/hWgMXLQ9LPgzYpeccD3h3KzIZU7efATplBLyDv+E= Ogun
+Pass: 62fwjG2VH6x5FYU
+
+Ozone Key: ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAnHcA9J6h8/GUJR2UEhFqVhxoHBCNnjv5PlnCDjJaC6m6ndF1x1u4OxAIpTsIyv8QIGuBr+LACuLSKcJX7mJZlfb85GhLoHOnJNWK941d489OLfSyyBghTfzM/1WHK2Q/v7oG59zVxgSVn9VsYxOCZGv2MS4hzwEeWjSfqNeLqu1UoIyabOv4IPlwoIvBRStjuFDhnJPVSe+xNbqy79z+ZYG7xNChGE3BZ7j/hyL5fUntNHFHHc49mlewlU3L4viVtft4fWGSiI0nH2Gi3M9f5hipcIQ5j0nD+DSUavHJ4BwDWUVFFhex53qMj/XflCkmrKZv+mXDLWllQluWakGCnWl7xpTEihkNvEqSGWwW5xn6FicyUIohAGnZMB54VZdbiCn3Do5boN3WWWP/h6zjdoXQUn4gdtv2Q94AM845U7tQA/UhvTA2hnJszbzEpdpEZWsKFxn6vgblu00SFXKbWDUEh+C/X2dQ1wjSqVVc7jbTPY1HcvRjrVFWU5LxwL0sFvBG7HiCToBQDLOdFOvRaojddjBb7ujQvGhQmL12ZJ9mG4gXb54AREX2dySW3DH7CptFnwtARdG315s9HtoUmU52szoiEInhSBLldlMPCeZmYrZXFfYj3n3ypmtD0y3EdfCbRzo9zGOhaYSdXrPmAyABghc+4DhPcgWe+KVge+M= Ozone
+Pass: hyphey83
+
+
+Amazon Web Services
+Ogun key: AKIAIfWUA5TCSMLKS7HAA
+Ogun secret key: qbZTkqoQZIh20oQWgLPI2wugxMIVT5ytHpBZY4dY
+
+    red:
+      primary-color: "#f44336"
+    pink:
+      primary-color: "#e91e63"
+    purple:
+      primary-color: "#9c27b0"
+    deep-purple:
+      primary-color: "#673ab7"
+    indigo:
+      primary-color: "#3f51b5"
+    blue:
+      primary-color: "#2196f3"
+    light-blue:
+      primary-color: "#03a9f4"
+    cyan:
+      primary-color: "#00bcd4"
+    teal:
+      primary-color: "#009688"
+    green:
+      primary-color: "#4caf50"
+    light-green:
+      primary-color: "#8bc34a"
+    lime:
+      primary-color: "#cddc39"
+    yellow:
+      primary-color: "#ffeb3b"
+    amber:
+      primary-color: "#ffc107"
+    orange:
+      primary-color: "#ff9800"
+    deep-orange:
+      primary-color: "#ff5722"
+    brown:
+      primary-color: "#795548"
+    grey:
+      primary-color: "#9e9e9e"
+    blue-grey:
+      primary-color: "#607d8b"
+      
+      
+    teal:
+      # Main Stuff #
+      primary-color: "#1DE9B6" # Primary (most of the UI)
+      primary-background-color: "#303030" # Primary background colour (dialogs, e.t.c)
+      secondary-background-color: "#303030" # Secondary background colour (main UI background)
+      paper-card-background-color: "#424242" # Card background colour
+      paper-item-icon-color: "#1DE9B6" # Icon colour
+      primary-text-color: "#FFFFFF" # Primary text colour
+      secondary-text-color: "rgba(255, 255, 255, 0.7)" # Secondary text colour
+      disabled-text-color: "rgba(255, 255, 255, 0.5)" # Disabled text colour
+      divider-color: "rgba(255, 255, 255, 0.12)" # Divider colour
+      paper-card-header-color: "#FFFFFF" # Card header text colour
+      # Nav Menu #
+      paper-listbox-background-color: "#424242" # Listbox background colour
+      paper-listbox-color: "#FFFFFF" # Listbox text colour
+      paper-grey-200: "#616161" # Listbox selected item background colour
+      # Switches #
+      paper-toggle-button-checked-ink-color: "#1DE9B6"
+      paper-toggle-button-checked-button-color: "#1DE9B6"
+      paper-toggle-button-checked-bar-color: "#1DE9B6"
+      # Sliders #
+      paper-slider-knob-color: "#1DE9B6"
+      paper-slider-knob-start-color: "#1DE9B6"
+      paper-slider-pin-color: "#1DE9B6"
+      paper-slider-active-color: "#1DE9B6"
+      paper-slider-secondary-color: "#33F2D8"
+    darkorange:
+      primary-color: "#ff9800"
+      light-primary-color: "#ffc947"
+      dark-primary-color: "#c66900"
+      text-primary-color: "#ffffff"
+      primary-background-color: "#37464f"
+      sidebar-text_-_background: "#62717b"
+      paper-card-background-color: "#263137"
+      paper-card-header-color: "var(--text-primary-color)"
+      secondary-background-color: "var(--primary-background-color)"
+      primary-text-color: "var(--text-primary-color)"
+      secondary-text-color: "var(--primary-color)"
+      paper-listbox-background-color: "var(--sidebar-text_-_background)"
+      paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-button-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-bar-color: "var(--dark-primary-color)"
+      paper-slider-knob-color: "var(--primary-color)"
+      paper-slider-knob-start-color: "var(--primary-color)"
+      paper-slider-pin-color: "var(--primary-color)"
+      paper-slider-active-color: "var(--primary-color)"
+      paper-slider-secondary-color: "var(--light-primary-color)"
+      paper-slider-container-color: "var(--sidebar-text_-_background)"
+      paper-progress-secondary-color: "var(--sidebar-text_-_background)"
+      paper-item-selected_-_background-color: "var(--primary-color)"
+      paper-item-icon_-_color: "var(--text-primary-color)"
+      paper-item-icon-color: "var(--sidebar-text_-_background)"
+      paper-item-icon-active-color: "var(--primary-color)"
+      paper-grey-50: "var(--sidebar-text_-_background)"
+      paper-grey-200: "var(--primary-background-color)"
+      label-badge-background-color: "var(--sidebar-text_-_background)"
+      label-badge-text-color: "var(--text-primary-color)"
+      label-badge-red: "var(--primary-color)"
+      label-badge-blue: "var(--light-primary-color)"
+      label-badge-green: "var(--dark-primary-color)"
+      label-badge-yellow: "var(--text-primary-color)"
+      label-badge-grey: "var(--paper-grey-500)"
+      table-row-background-color: "var(--paper-card-background-color)"
+      table-row-alternative-background-color: "var(--sidebar-text_-_background)"
+    darkred:
+    # Main colors that can be changed
+      dark-primary-color: "#c66900"
+      disabled-text-color: "#545454"
+      divider-color: "rgba(255, 255, 255, 0.12)"
+      light-primary-color: "#e06c6c"
+      paper-card-background-color: "#1d1d1d"
+      paper-grey-200: "#191919"
+      paper-item-icon-color: "#d3d3d3"
+      paper-listbox-background-color: "#202020"
+      primary-background-color: "#303030"
+      primary-color: "#d32f2f"
+      primary-text-color: "#cfcfcf"
+      secondary-background-color: "#131313"
+      sidebar-text_-_background: "#62717b"
+    # Colors based on variables, see above
+      paper-card-header-color: "var(--paper-item-icon-color)"
+      paper-item-icon-active-color: "var(--primary-color)"
+      paper-item-icon_-_color: "var(--primary-text-color)"
+      paper-listbox-color: "var(--primary-text-color)"
+      paper-grey-50: "var(--primary-text-color)"
+      paper-slider-active-color: "var(--primary-color)"
+      paper-slider-knob-color: "var(--primary-color)"
+      paper-slider-knob-start-color: "var(--primary-color)"
+      paper-slider-pin-color: "var(--primary-color)"
+      paper-slider-secondary-color: "var(--light-primary-color)"
+      paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-button-color: "var(--primary-color)"
+      paper-toggle-button-checked-bar-color: "var(--light-primary-color)"
+      paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"
+      secondary-text-color: "var(--primary-color)"
+      table-row-background-color: "var(--paper-card-background-color)"
+      table-row-alternative-background-color: "var(--sidebar-text_-_background)"
+    darkcyan:
+    # Main colors that can be changed
+      primary-color: "#00bcd4"
+      disabled-text-color: "#545454"
+      divider-color: "rgba(255, 255, 255, 0.12)"
+      paper-card-background-color: "#4e4e4e"
+      paper-grey-200: "#191919"
+      paper-item-icon-color: "#d3d3d3"
+      paper-listbox-background-color: "#202020"
+      paper-listbox-color: "#FFFFFF"
+      primary-background-color: "#303030"
+      primary-text-color: "#cfcfcf"
+      secondary-background-color: "#2b2b2b"
+      secondary-text-color: "#04a7bc"
+    # Colors based on variables, see above
+      label-badge-background-color: "var(--secondary-background-color)"
+      label-badge-text-color: "var(--text-primary-color)"
+      paper-card-header-color: "#var(--paper-item-icon-color)"
+      paper-grey-50: "var(--primary-text-color)"
+      paper-item-icon-active-color: "var(--primary-color)"
+      paper-item-icon_-_color: "var(--primary-text-color)"
+      paper-slider-active-color: "var(--primary-color)"
+      paper-slider-knob-color: "var(--primary-color)"
+      paper-slider-knob-start-color: "var(--primary-color)"
+      paper-slider-pin-color: "var(--primary-color)"
+      paper-slider-secondary-color: "var(--light-primary-color)"
+      paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-button-color: "var(--primary-color)"
+      paper-toggle-button-checked-bar-color: "var(--light-primary-color)"
+      paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"
+    carbongreen:
+      #Color List
+      make-light-carbon: "#93A5AB"
+      make-carbon: "#111924"
+      make-grey: "#DEE5E7"
+      make-green: "#C2DD08"
+      make-blue: "#00A3DA"
+      make-red: "#EC5D57"
+      make-yellow: "#FCF933"
+      make-orange: "#E49D64"
+      make-white: "#FFFFFF"
+      make-disable: "#bdbdbd"
+      light-primary-color: "var(make-light-carbon)"
+      background-color: "var(--make-grey)"
+      dark-primary-color: "var(-make-carbon)"
+      #Main Colors
+      primary-background-color: "var(--make-light-carbon)" #Background color settings
+      secondary-background-color: "var(--make-grey)" #Background tabs
+      primary-text-color: "var(--make-carbon)" #Primary Text
+      secondary-text-color: "var(--make-green)" #sub text etc.
+      disabled-text-color: "var(--make-disable)" #Deactivated Text
+      divider-color: "var(--make-green)" #Divider Linies
+      primary-color: "var(--make-carbon)" #Head of HA
+      #Labels
+      label-badge-red: "var(--make-red)"
+      label-badge-blue: "var(--make-blue)"
+      label-badge-green: "var(--make-green)"
+      label-badge-yellow: "var(--make-yellow)"
+      label-badge-grey: "var(--make-grey)"
+      label-badge-text-color: "var(--make-carbon)" #Text color sensors
+      label-badge-background-color: "var(--make-grey)" #Background sensors
+      #Google Loading
+      google-red-500: "var(--make-red)"
+      google-blue-500: "var(--make-blue)"
+      google-green-500:  "var(--make-green)"
+      google-yellow-500: "var(--make-yellow)"
+      #Frontend
+      paper-green-400: "var(--make-green)"
+      paper-blue-400: "var(--make-blue)"
+      paper-orange-400: "var(--make-orange)"
+      paper-grey-50: "var(--make-grey)"
+      paper-grey-200: "var(--make-green)"
+      paper-item-icon-color: "var(--make-grey)" #Color Icon off
+      paper-item-icon-active-color: "var(--make-green)" #Color Icon on
+      paper-button-ink-color: "var(--make-carbon)" #Color Button selected
+      paper-button-color: "var(--make-red)"
+      paper-toggle-button-checked-ink-color: "var(--make-green)"
+      paper-toggle-button-checked-button-color: "var(--make-green)"
+      paper-toggle-button-checked-bar-color: "var(--make-green)"
+      paper-toggle-button-unchecked-button-color: "var(--make-grey)"
+      paper-toggle-button-unchecked-bar-color: "var(--make-grey)"
+      paper-toggle-button-unchecked-ink-color: "var(--make-grey)"
+      paper-slider-knob-color: "var(--make-carbon)" #Slider dot on
+      paper-slider-knob-start-color: "var(--make-carbon)" #Slider dot off
+      paper-slider-pin-color: "var(--make-red)" #
+      paper-slider-active-color: "var(--make-carbon)" #Slider line active
+      paper-slider-secondary-color: "var(--make-red)" #
+      paper-slider-container-color: "var(--make-light-carbon)" #Slider line inactive
+      paper-listbox-color: "var(--make-carbon)"  #Text Dorpdown box
+      paper-listbox-background-color: "var(--make-grey)" #Background of Listen
+      paper-card-background-color: "var(--make-light-carbon)" #Background from cards in tabs
+      paper-card-header-color: "var(--make-carbon)" #Headline Color of tabs
+      paper-dialog-background-color: "var(--make-grey)" #Color Dialog Box
+      paper-item-selected_-_background-color: "var(--make-green)" #Selected Option in Dropdown
+      paper-tabs-selection-bar-color: "var(--make-red)" #
+      table-row-background-color: "var(--make-grey)" #Background color table
+      table-row-alternative-background-color: "var(--make-gery)" #second color table
+      #Font
+      primary-font-family: "Gill Sans"
+      paper-font-common-base_-_font-family: "var(--primary-font-family)"
+      paper-font-common-code_-_font-family: "var(--primary-font-family)"
+      paper-font-body1_-_font-family: "var(--primary-font-family)"
+      paper-font-subhead_-_font-family: "var(--primary-font-family)"
+      paper-font-headline_-_font-family: "var(--primary-font-family)"
+      paper-font-caption_-_font-family: "var(--primary-font-family)"
+      paper-font-title_-_font-family: "var(--primary-font-family)"
+    minimal:
+      dark-primary-color: "#192231"
+      primary-color: "#98878f"
+      light-primary-color: "#98878f"
+      paper-toggle-button-checked-ink-color: "#494e6b"
+      paper-toggle-button-checked-button-color: "#494e6b"
+      paper-toggle-button-checked-bar-color: "#494e6b"
+      paper-slider-knob-color: "#494e6b"
+      paper-slider-knob-start-color: "#494e6b"
+      paper-slider-pin-color: "#494e6b"
+      paper-slider-active-color: "#494e6b"
+    stormy_hues:
+      dark-primary-color: "#192231"
+      primary-color: "#98878f"
+      light-primary-color: "#98878f"
+      paper-toggle-button-checked-ink-color: "#494e6b"
+      paper-toggle-button-checked-button-color: "#494e6b"
+      paper-toggle-button-checked-bar-color: "#494e6b"
+      paper-slider-knob-color: "#494e6b"
+      paper-slider-knob-start-color: "#494e6b"
+      paper-slider-pin-color: "#494e6b"
+      paper-slider-active-color: "#494e6b"
+    vintage:
+      dark-primary-color: "#373f27"
+      primary-color: "#636b46"
+      light-primary-color: "#e9e7da"
+      paper-toggle-button-checked-ink-color: "#cda34f"
+      paper-toggle-button-checked-button-color: "#cda34f"
+      paper-toggle-button-checked-bar-color: "#cda34f"
+      paper-slider-knob-color: "#cda34f"
+      paper-slider-knob-start-color: "#cda34f"
+      paper-slider-pin-color: "#cda34f"
+      paper-slider-active-color: "#cda34f"
+    done1:
+      dark-primary-color: "#565656"
+      primary-color: "#C09F80"
+      light-primary-color: "#D7CEC7"
+      paper-toggle-button-checked-ink-color: "#76323F"
+      paper-toggle-button-checked-button-color: "#76323F"
+      paper-toggle-button-checked-bar-color: "#76323F"
+      paper-slider-knob-color: "#76323F"
+      paper-slider-knob-start-color: "#76323F"
+      paper-slider-pin-color: "#76323F"
+      paper-slider-active-color: "#76323F"
+      paper-slider-secondary-color: "#FFE0B2"      

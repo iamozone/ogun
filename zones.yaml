@@ -1,0 +1,49 @@
+# Zoning information
+
+- name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  radius: !secret radius
+  icon: mdi:home
+  
+- name: !secret work
+  latitude: !secret work_lat
+  longitude: !secret work_long
+  radius: !secret work_radius
+  icon: mdi:briefcase
+  
+- name: !secret uwbell
+  latitude: !secret uwbell_lat
+  longitude: !secret uwbell_long
+  radius: !secret uwbell_rad
+  icon: mid:hospital
+  
+- name: !secret uwmed
+  latitude: !secret uwmed_lat
+  longitude: !secret uwmed_long
+  radius: !secret uwmed_rad
+  icon: mdi:hospital
+  
+- name: !secret uwroo
+  latitude: !secret uwroo_lat
+  longitude: !secret uwroo_long
+  radius: !secret uwroo_rad
+  icon: mid:hospital
+  
+- name: !secret har
+  latitude: !secret har_lat
+  longitude: !secret har_long
+  radius: !secret har_rad
+  icon: mid:hospital
+  
+- name: !secret dentist
+  latitude: !secret dent_lat
+  longitude: !secret dent_long
+  radius: !secret dent_rad
+  icon: mid:hospital
+  
+- name: !secret sound
+  latitude: !secret sound_lat
+  longitude: !secret sound_long
+  radius: !secret sound_rad
+  icon: mid:hospital  

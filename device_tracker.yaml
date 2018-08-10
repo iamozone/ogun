@@ -1,0 +1,41 @@
+################################################################################
+# Device Trackers
+################################################################################
+# Linksys Smart Wifi
+  - platform: linksys_smart
+    host: !secret linksys
+    username: !secret linksys_user
+    password: !secret linksys_pass
+    interval_seconds: 15
+    consider_home: 00:05:00
+    new_device_defaults:
+      track_new_devices: True
+      hide_if_away: False
+
+    
+# Tile Tracker    
+  - platform: tile
+    username: !secret tile_user
+    password: !secret tile_pass
+    monitored_variables: TILE  
+    
+# OwnTracks    
+  - platform: owntracks
+    name: Ozone
+    mac: FC:2D:5E:DE:F5:7D
+    consider_home: 600
+    max_gps_accuracy: 200
+    waypoints: True
+    mqtt_topic: "owntracks/#"
+    events_only: false
+    
+# MQTT Device Tracker
+  - platform: mqtt
+    devices:
+      ozone_axon7mini: 'location/ozone' 
+      
+# Nmap
+device_tracker:
+  - platform: nmap_tracker
+    hosts: 192.168.1.0/32
+    home_interval: 30

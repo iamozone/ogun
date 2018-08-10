@@ -1,0 +1,16 @@
+
+wallet:
+  hide_if_away: false
+  icon: mdi:bluetooth
+  name: Wallet
+  picture:
+  track: true
+  hide_if_away: yes
+  
+black_panther:
+  name: Black Panther
+  mac: FC:2D:5E:DE:F5:7D
+  picture: /local/images/devices/black_panther.jpg
+  icon: mdi:android
+  track: true
+  hide_if_away: false
