@@ -1,0 +1,14 @@
+# https://git-scm.com/docs/gitignore
+# https://help.github.com/articles/ignoring-files
+# Example .gitignore files: https://github.com/github/gitignore
+/bower_components/
+/node_modules/
+addon-configs
+hassio-etcs
+.august.conf
+.google.token
+.tile.conf
+.wink.conf
+dhcpd.conf
+upsmychoice_cookies.pickle
+wpa_supplicant.conf

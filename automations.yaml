@@ -17,3 +17,115 @@
     action:
       service: switch.turn_on
       entity_id: switch.temperature
+      
+# Change theme based on daylight
+- alias: Automatic Theme Change
+    trigger:
+      - platform: homeassistant
+        event: start
+      - platform: state
+        entity_id: sun.sun
+        to: above_horizon
+      - platform: state
+        entity_id: sun.sun
+        to: below_horizon
+    action:
+      - service_template: frontend.set_theme
+        data_template:
+          name: >
+            {% if states.sun.sun.state == "above_horizon" %}
+              default
+            {% else %}
+              darkred # <-- change to your dark theme name.
+            {% endif %}
+        
+# SSL expiry notification        
+  - alias: Interface - SSL certificate expiry notification
+    initial_state: on
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.ssl_cert_expiry
+      below: 21
+    action:
+      service: script.notify
+      data:
+        tell: mf
+        no_say: 1
+        message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
+
+# SSL Renewal
+- id: ssl-renewal
+  alias: "SSL Renewal"
+  trigger:
+  - platform: time
+    at: '00:00:00'
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: duck_dns
+
+# Join Notify
+- alias: Test Join
+      trigger:
+        platform: state
+        entity_id: input_boolean.activate_join
+        to: 'on'
+      action:
+        service: text.join
+      data:
+        target:
+          - 'Phone'
+          - 'Browser'
+          - 'Windows'
+        title: <title>
+        message: '<action>/[<phone-number>/]<data>'
+
+# SpeedTest Connection Glow
+  - alias: "Internet Speed Glow Connect Great"
+    trigger:
+      - platform: template
+        value_template: "{{ states('sensor.speedtest_download')|float > 10 }}"
+    action:
+      - service: shell_command.green
+
+  - alias: "Internet Speed Glow Connect Poor"
+    trigger:
+      - platform: template
+        value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
+    action:
+      - service: shell_command.red        
+ 
+# Disk Use Alarms 
+ 
+- alias: "Self Heal Disk Use Alarm"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.disk_use_percent_
+        above: 80
+    action:
+      - service: script.notify_engine
+        data_template:
+          value1: 'Hard Drive Monitor:'
+          value2: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_percent_.state }}%!"
+          value3: 'Attempting to clean'
+          who: 'carlo'
+      - service: tts.clear_cache
+
+  - alias: "Disk Use Alarm"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.disk_use_percent_
+        above: 90
+    action:
+      - service: script.notify_engine
+        data_template:
+          value1: 'Hard Drive Monitor:'
+          value2: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_percent_.state }}%!"
+          who: 'carlo'
+
+      - service: persistent_notification.create
+        data:
+          title: "Hard Drive Monitor:"
+          message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_percent_.state }}%!"
+          notification_id: "Critical Alert"
+              

@@ -117,10 +117,12 @@ duckdns:
   
 # Mosquitto Broker
 mqtt:
-  broker: 127.0.0.1
+  broker: !secret cloud_server
+  port: !secret cloud_port
   client_id: Ogun
-  username: !secret username
-  password: !secret password
+  username: !secret cloud_user
+  password: !secret cloud_pass
+  certificate: !secret ssl_certificate
  
 # MariaDB
 #  db_url: !secret maria_url
