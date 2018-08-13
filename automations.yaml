@@ -6,7 +6,7 @@
   - alias: "Cool down when hot"
     trigger:
       platform: numeric_state
-      entity_id: sensor.temp
+      entity_id: sensor.studio_temperature
       above: '21.1111'
     condition:
       condition: or
@@ -17,7 +17,14 @@
     action:
       service: switch.turn_on
       entity_id: switch.temperature
-      
+
+
+####################################################
+#                                                  #
+#             Theme Switch                         #
+#                                                  #
+#################################################### 
+
 # Change theme based on daylight
 - alias: Automatic Theme Change
     trigger:
@@ -39,6 +46,12 @@
               darkred # <-- change to your dark theme name.
             {% endif %}
         
+####################################################
+#                                                  #
+#             SSL Update                           #
+#                                                  #
+####################################################    
+
 # SSL expiry notification        
   - alias: Interface - SSL certificate expiry notification
     initial_state: on
@@ -64,6 +77,11 @@
     data:
       addon: duck_dns
 
+####################################################
+#                                                  #
+#             Join Notify                          #
+#                                                  #
+#################################################### 
 # Join Notify
 - alias: Test Join
       trigger:
@@ -79,7 +97,12 @@
           - 'Windows'
         title: <title>
         message: '<action>/[<phone-number>/]<data>'
-
+        
+####################################################
+#                                                  #
+#             SpeedTest                            #
+#                                                  #
+#################################################### 
 # SpeedTest Connection Glow
   - alias: "Internet Speed Glow Connect Great"
     trigger:
@@ -95,7 +118,12 @@
     action:
       - service: shell_command.red        
  
-# Disk Use Alarms 
+ 
+####################################################
+#                                                  #
+#             Disk Usage Alarm                     #
+#                                                  #
+####################################################  
  
 - alias: "Self Heal Disk Use Alarm"
     trigger:

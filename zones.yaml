@@ -36,12 +36,6 @@
   radius: !secret har_rad
   icon: mid:hospital
   
-- name: !secret dentist
-  latitude: !secret dent_lat
-  longitude: !secret dent_long
-  radius: !secret dent_rad
-  icon: mid:hospital
-  
 - name: !secret sound
   latitude: !secret sound_lat
   longitude: !secret sound_long

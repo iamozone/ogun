@@ -12,14 +12,14 @@
       track_new_devices: True
       hide_if_away: False
 
-    
-# Tile Tracker    
+
+# Tile Tracker
   - platform: tile
     username: !secret tile_user
     password: !secret tile_pass
-    monitored_variables: TILE  
-    
-# OwnTracks    
+    monitored_variables: TILE
+
+# OwnTracks
   - platform: owntracks
     name: Ozone
     mac: FC:2D:5E:DE:F5:7D
@@ -28,14 +28,8 @@
     waypoints: True
     mqtt_topic: "owntracks/#"
     events_only: false
-    
-# MQTT Device Tracker
-  - platform: mqtt
-    devices:
-      ozone_axon7mini: 'location/ozone' 
-      
+
 # Nmap
-device_tracker:
   - platform: nmap_tracker
     hosts: 192.168.1.0/32
     home_interval: 30

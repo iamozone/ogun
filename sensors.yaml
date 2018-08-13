@@ -1,26 +1,33 @@
 ################################################################################
 # Sensors
-################################################################################  
+################################################################################
 
 ################################################################################
 ### Hardware Sensors ###
-################################################################################   
-# Hue Sensors    
+################################################################################
+# Hue Sensors
   - platform: hue
     ip_address: !secret hue_ip
     token: !secret hue_token
-    
+
   - platform: rest
     resource: !secret studio_sensor_1
     value_template: '{{ value_json.state.status }}'
     name: 'Studio Motion'
     scan_interval: 2
-  
+
   - platform: rest
     resource: !secret studio_temp
     value_template: '{{ value_json.state.temperature | float / 100 }}'
-    unit_of_measurement: °F
+    unit_of_measurement: '°F'
     name: 'Studio Temperature'
+
+  - platform: template
+    sensors:
+      studio_temperature:
+        friendly_name: "Studio Temperature"
+        unit_of_measurement: '°F'
+        value_template: "{{ states('sensor.studio_temperature') | float * 9 / 5  +  32 }}"
 
   - platform: rest
     resource: !secret studio_ambient
@@ -31,7 +38,7 @@
   - platform: rest
     resource: !secret kitchen_temp
     value_template: '{{ value_json.state.temperature | float / 100 }}'
-    unit_of_measurement: °F
+    unit_of_measurement: '°F'
     name: 'Kitchen Temperature'
 
   - platform: rest
@@ -43,7 +50,7 @@
   - platform: rest
     resource: !secret bathroom_temp
     value_template: '{{ value_json.state.temperature | float / 100 }}'
-    unit_of_measurement: °F
+    unit_of_measurement: '°F'
     name: 'Bathroom Temperature'
 
   - platform: rest
@@ -54,23 +61,18 @@
 
 ################################################################################
 ### Weather & Climate ###
-################################################################################ 
+################################################################################
 
 # Time & Date
   - platform: time_date
     display_options:
       - 'time'
       - 'date'
-      - 'time_utc'
-      - 'beat'
-      
-  - platform: template
-    value_template: {{ as_timestamp(states('sensor.time')) | timestamp_custom('%I:%M %p') }}
-    
+
 # Season Tracker
   - platform: season
     type: astronomical
-    
+
 # World Air Quality Index
   - platform: waqi
     token: !secret waqi_key
@@ -82,8 +84,8 @@
       - 10th and Weller
       - Beacon Hill
       - SE 12th St
-      
-# Pollen Tracker      
+
+# Pollen Tracker
   - platform: pollen
     zip_code: "98122"
     monitored_conditions:
@@ -93,7 +95,7 @@
       - allergy_index_tomorrow
       - allergy_index_yesterday
       - disease_average_forecasted
-      
+
   - platform: wunderground
     api_key: !secret wu_key
     pws_id: !secret wu_station
@@ -131,19 +133,19 @@
       - weather_2d
       - weather_3d
       - weather_4d
-      
-# Air Visual      
+
+# Air Visual
   - platform: airvisual
     api_key: !secret air_key
     monitored_conditions:
       - us
     city: Seattle
     state: Washington
-    country: USA      
-      
+    country: USA
+
 ################################################################################
 ### Financial Markets ###
-################################################################################ 
+################################################################################
 
  # Coin Market Cap
   - platform: coinmarketcap
@@ -206,104 +208,126 @@
     currency_id: 1720
     display_currency: USD
     display_currency_decimals: 2
-    
+
 # Alpha Vantange
   - platform: alpha_vantage
     api_key: !secret alpha_key
-# Stocks    
+# Stocks
     symbols:
     - symbol: GOOGL
       name: Google
     - symbol: FB
       name: Facebook
-    - symbol: 
+    - symbol: TWTR
       name: Twitter
     - symbol: GOOGL
       name: Microsoft
     - symbol: GOOGL
       name: Apple
-    - symbol: GOOGL
+    - symbol: AMZN
+      name: Amazon
+    - symbol: INTC
+      name: Intel
+    - symbol: ADBE
+      name: Adobe Systems
+    - symbol: NVDA
       name: NVidia
-    - symbol: GOOGL
-      name: 
-    - symbol: GOOGL
-      name: Google
-      
-# Currency Exchange Rates      
+    - symbol: IBM
+      name: IBM
+    - symbol: MFBP
+      name: M & F Bancorp Inc.
+    - symbol: CZBS
+      name: Citizens Trust Bancshares Corporation
+    - symbol: AMS
+      name: American Shared Hospital Services
+    - symbol: UONE
+      name: Urban One, Inc.
+    - symbol: RLJE
+      name: RLJ Entertainment, Inc.
+    - symbol: RLJ
+      name: RLJ Lodging Trust
+    - symbol: IBWC
+      name: IBW Financial Corp
+    - symbol: URBT
+      name: Urban Television Network (Punch Animations, Inc.)
+    - symbol: HRBK
+      name: Harbor Bankshares Corp
+
+# Currency Exchange Rates
     foreign_exchange:
-    - name: $1 to €1 Euro
+    - name: $1 to 1 Euro
       from: USD
       to: EUR
-    - name: $1 to £1 UK Pound 
+    - name: $1 to 1 UK Pound
       from: USD
-      to: GBP  
-    - name: $1 to $1 Canadian Dollar
+      to: GBP
+    - name: $1 to 1 Canadian Dollar
       from: USD
       to: CAD
-    - name: $1 to $1 Australian Dollar
+    - name: $1 to 1 Australian Dollar
       from: USD
       to: AUD
-    - name: $1 to ₦1 Nigeria Naira
+    - name: $1 to 1 Nigeria Naira
       from: USD
       to: NGN
-    - name: $1 to R1 South Africa Rand
+    - name: $1 to 1 South Africa Rand
       from: USD
       to: ZAR
-    - name: $1 to د.ج 1 Algerian Dinar
+    - name: $1 to 1 Algerian Dinar
       from: USD
       to: DZD
-    - name: $1 to £1 Egyptian Pound
+    - name: $1 to 1 Egyptian Pound
       from: USD
       to: EGP
-    - name: $1 to 1د.م. Moroccan Dirham
+    - name: $1 to 1 Moroccan Dirham
       from: USD
       to: MAD
-    - name: $1 to £1 Sudanese Pound
+    - name: $1 to 1 Sudanese Pound
       from: USD
       to: SDG
-    - name: $1 to 1Sh Kenyan Shilling
+    - name: $1 to 1 Kenyan Shilling
       from: USD
       to: KES
-    - name: $1 to 1Kz Angolan Kwanza
+    - name: $1 to 1 Angolan Kwanza
       from: USD
       to: AOA
-    - name: $1 to 1ل.دLibyan Dinar
+    - name: $1 to 1 Libyan Dinar
       from: USD
       to: LYD
-    - name: $1 to د.ت 1 Tunisian Dinar
+    - name: $1 to 1 Tunisian Dinar
       from: USD
       to: TND
-    - name: $1 to ¥1 Chinese Yuan
+    - name: $1 to 1 Chinese Yuan
       from: USD
       to: CNY
-    - name: $1 to $1 Singapore Dollar
+    - name: $1 to 1 Singapore Dollar
       from: USD
       to: SGD
-    - name: $1 to ₨1 Indian Rupee
+    - name: $1 to 1 Indian Rupee
       from: USD
       to: INR
-    - name: $1 to ¥1 Japanese Yen
+    - name: $1 to 1 Japanese Yen
       from: USD
       to: JPY
-    - name: $1 to ر.س 1 Saudi Riyal
+    - name: $1 to 1 Saudi Riyal
       from: USD
       to: SAR
-    - name: $1 to ﷼1 Iranian Rial
+    - name: $1 to 1 Iranian Rial
       from: USD
       to: IRR
-    - name: $1 to R$1 Brazilian Real
+    - name: $1 to 1 Brazilian Real
       from: USD
       to: BRL
-    - name: $1 to $1 Argentine Peso
+    - name: $1 to 1 Argentine Peso
       from: USD
       to: ARS
-    - name: $1 to $1 Mexican Peso
+    - name: $1 to 1 Mexican Peso
       from: USD
       to: MXN
-    
+
 ################################################################################
 ### Media & Social ###
-################################################################################ 
+################################################################################
 
 # XBOX Live
   - platform: xbox_live
@@ -314,13 +338,13 @@
       - 0009000001799F33
       - 000901FF68BA7B0D
       - 0009000006A06D84
-      
+
 # Last.fm
   - platform: lastfm
     api_key: !secret lastfm_key
     users:
       - ozonethegreat
-      
+
 # Pocket Casts
   - platform: pocketcasts
     username: !secret pocketcasts_user
@@ -360,7 +384,7 @@
       - "activities/tracker/minutesSedentary"
       - "activities/tracker/minutesVeryActive"
       - "activities/tracker/steps"
- 
+
 
 # Mold Indicator
   - platform: mold_indicator
@@ -371,18 +395,18 @@
 
 ################################################################################
 ### Shipment Tracking ###
-################################################################################       
- 
+################################################################################
+
 # FedEx
   - platform: fedex
     username: !secret fedex_user
     password: !secret fedex_pass
-    
+
 # UPS
   - platform: ups
     username: !secret ups_user
     password: !secret ups_pass
-  
+
 # Aftership
   - platform: rest
     name: AfterShip Sensor
@@ -392,11 +416,11 @@
       - data
     headers:
       aftership-api-key: !secret aftership
-      Content-Type: application/json  
+      Content-Type: application/json
 
 ################################################################################
 ### Travel & Navigation ###
-################################################################################ 
+################################################################################
 # Google Maps Travel Time
   - platform: google_travel_time
     api_key: !secret gmaps_api
@@ -406,17 +430,25 @@
     name: Work Commute
     arrival_time: 09:30:00
     units: imperial
-    
+
   - platform: google_travel_time
     name: Home Commute
     api_key: !secret gmaps_api
     origin: !secret gmaps_dest
     destination: !secret gmaps_origin
     mode: transit
-    
+
+  - platform: google_geocode
+    name: Ozone
+    origin: device_tracker.mobile_phone
+    options: street_number, street, city
+    display_zone: hide
+    gravatar: !secret email
+    api_key: !secret google_geocode    
+
 ################################################################################
 ### Downloaders ###
-################################################################################  
+################################################################################
 
 # Deluge Downloader
   - platform: deluge
@@ -438,15 +470,15 @@
     monitored_conditions:
       - series
       - upcoming
-      - queue    
-    
+      - queue
+
 ##########################################################
 ### System Monitoring ###
 ##########################################################
-        
+
 # CPU Speed
   - platform: cpuspeed
-  
+
 # System Monitor
   - platform: systemmonitor
     resources:
@@ -467,7 +499,7 @@
       - type: packets_out
         arg: eth0
       - type: ipv4_address
-        arg: eth0     
+        arg: eth0
       - type: ipv6_address
         arg: eth0
       - type: processor_use
@@ -510,8 +542,8 @@
         {{ ', ' }}
       {%- endif -%}
       {{ '%02d' % hours }}:{{ '%02d' % minutes }}
-      
-# Uptime      
+
+# Uptime
   - platform: command_line
     name: "Uptime"
     command: echo "$(($(date +%s) - $(date -d "$(head -n1 /home/homeassistant/.homeassistant/home-assistant.log | cut -d' ' -f-2)" +%s)))"
@@ -538,7 +570,7 @@
     unit_of_measurement: days
     scan_interval: 3600
     command: "ssl-cert-check -b -c /home/homeassistant/.homeassistant/REDACTED.pem | awk '{ print $NF }'"
-              
+
 
 # Current Version
   - platform: command_line
@@ -548,9 +580,9 @@
 
 # Installed Version
   - platform: command_line
-    command: /srv/homeassistant/bin/hass --version
+    command: hassio homeassistant info
     name: Installed HA Version
-    scan_interval: 3600   
+    scan_interval: 3600
 
 ##########################################################
 ### Network Montoring ###
@@ -568,7 +600,7 @@
       - 12
       - 18
     minute: 30
-      
+
 # PiHole Stats
   - platform: pi_hole
     host: http://bashenga.local/admin/
@@ -585,7 +617,7 @@
     resource: https://icanhazip.com
     name: External IP
     value_template: '{{ value }}'
-  
+
 ##########################################################
 ### Custom Sensors ###
 ##########################################################
@@ -596,12 +628,12 @@
       hline_1:
         value_template: hline
       hline_2:
-        value_template: hline 
+        value_template: hline
       hline_3:
         value_template: hline
       hline_4:
-        value_template: hline 
-        
+        value_template: hline
+
 # Sun Angle
   - platform: template
     sensors:
@@ -609,19 +641,10 @@
         friendly_name: "Sun Angle"
         unit_of_measurement: '°'
         value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"
-        
-# Celcius to Fahrenheit 
-  - platform: template
-    sensors:
-      studio_temperature_temp:
-      entity_id:
-      - sensor.studio_temperature
-      unit_of_measurement: '°F'
-      value_template: >
-        {{ ((float(states('sensor.sensor1')) * 9 / 5 )  +  32) | round(1) }}   
+
 
 # Aftership
- - platform: rest
+  - platform: rest
     name: Package Title
     resource: https://api.aftership.com/v4/trackings/
     value_template: '{{ value_json["data"]["trackings"][0]["title"] }}'

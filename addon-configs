@@ -64,6 +64,7 @@
   "init_commands": []
 }
 ######### Samba #########
+
 {
   "workgroup": "WORKGROUP",
   "name": "Ogun",
@@ -212,7 +213,7 @@
   "keyfile": "privkey.pem",
   "require_ssl": true,
   "system_packages": [],
-  "npm_packages": ["node-red-contrib-home-assistant", "node-red-contrib-home-assistant-ws", "node-red-contrib-google-action", "node-red-node-google", "node-red-contrib-shorturl", "node-red-contrib-viseo-dialogflow", "node-red-contrib-viseo-google-maps", "node-red-contrib-viseo-google-youtube", "node-red-contrib-google", "node-red-contrib-google-action-dialogflow-http", "node-red-contrib-google-tts", "node-red-contrib-google-action-dialogflow", "node-red-contrib-google-home-notify", "node-red-node-web-nodes", "node-red-node-youtube", "node-red-contrib-ifttt", "node-red-contrib-facebook-messenger-writer", "node-red-contrib-join-joaoapps", "node-red-contrib-gpio", "node-red-contrib-alexa", "node-red-contrib-alexa-home-skill", "node-red-contrib-alexa-home", "node-red-contrib-viseo-amazon", "node-red-contrib-huemagic", "node-red-contrib-tplink-iot", "node-red-contrib-kodi", "node-red-contrib-plex"],
+  "npm_packages": ["node-red-contrib-home-assistant", "node-red-contrib-home-assistant-ws", "node-red-node-web-nodes", "node-red-contrib-ifttt", "node-red-contrib-facebook-messenger-writer", "node-red-contrib-join-joaoapps", "node-red-contrib-gpio", "node-red-contrib-huemagic", "node-red-contrib-tplink-iot", "node-red-contrib-kodi", "node-red-contrib-plex"],
   "init_commands": []
 }
 

@@ -11,13 +11,12 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: !secret time_zone
   # external files
-  frontend: !include frontend.yaml
   customize: !include customize.yaml
   packages: !include_dir_named packages
 
 ################################################################################
 # Updater
-################################################################################      
+################################################################################
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -27,25 +26,58 @@ homeassistant:
 
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
-  include_used_components: true
-  
+  #include_used_components: true
+
 ################################################################################
 # Enablers
 ################################################################################
 
-# Show links to resources in log and frontend
-#introduction:
+# Enables frontend
+frontend:
+  javascript_version: latest
+  themes: !include_dir_merge_named themes
+  extra_html_url:
+    - /local/custom_ui/state-card-floorplan.html
+    - /local/custom_ui/state-card-hline.html
+    - /local/custom_ui/state-card-aftership.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-hline_es5.html
+
+# Enables Hassio tab
+hassio:
 
 # Enables configuration UI
 config:
 
+# Enables Recording
+recorder:
+  purge_interval: 3
+  purge_keep_days: 10
+  db_url: !secret maria_url
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
 # Discover some devices automatically
 discovery:
-  ignore:
-    pn58c8000_samsung_dtv_rcr
-  
-# Enable iOS frontend
-#ios:
+
+# Enable Ffmpeg
+ffmpeg:
+
+# Enable DialogFlow
+dialogflow:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# API
+api:
+
+# Python Scripts
+python_script:
 
 # Home Assistant Cloud
 cloud:
@@ -60,37 +92,27 @@ cloud:
         - media_player.whole_home_music
         - remote.harmony_hub
         - media_player.pn58c8000_samsung_dtv_rcr
-        
-# Enables support for tracking state changes over time
-history:
 
-# View all events in a logbook
-logbook:
+################################################################################
+# Google Assistant
+################################################################################
 
-# Enable logging
-logger:
-  
-# Enable Ffmpeg
-ffmpeg:
+google_assistant:
+  project_id: ogun
+  client_id: !secret google_client_id
+  access_token: !secret google_access_token
+  agent_user_id: !secret email
+  api_key: !secret google_api
+  exposed_domains:
+    - group
+    - input boolean
+    - scene
+    - script
+################################################################################
+# Amazon Alexa
+################################################################################
 
-# Enable DialogFlow
-dialogflow:
 
-#zwave:
-  #usb_path: /dev/ttyACM0
-#  new_entity_ids: true
-#  config_path: /srv/homeassistant/lib/python3.4/site-packages/python_openzwave/ozw_config
-  #polling_interval: 30000
-  
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-   
-# API
-api:
-    
-# Python Scripts
-#python_script:
-  
 ################################################################################
 # Local Access
 ################################################################################
@@ -99,8 +121,8 @@ http:
   # Secrets are defined in the file secrets.yaml
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  #base_url: !secret base_url
-  #ssl_certificate: !secret ssl_certificate
+  base_url: !secret base_url
+  ssl_certificate: !secret ssl_certificate
   #ssl_key: !secret ssl_key
   trusted_networks:
     - 192.168.1.0/32
@@ -114,7 +136,7 @@ http:
 duckdns:
   domain: ogun
   access_token: !secret duck_token
-  
+
 # Mosquitto Broker
 mqtt:
   broker: !secret cloud_server
@@ -123,11 +145,8 @@ mqtt:
   username: !secret cloud_user
   password: !secret cloud_pass
   certificate: !secret ssl_certificate
- 
-# MariaDB
-#  db_url: !secret maria_url
- 
-# InfluxDB 
+
+# InfluxDB
 influxdb:
   host: a0d7b954-influxdb
   port: 8086
@@ -138,7 +157,7 @@ influxdb:
   ssl: true
   verify_ssl: true
   default_measurement: state
-     
+
 ################################################################################
 # OAuth Components
 ################################################################################
@@ -155,25 +174,25 @@ august:
   login_method: phone
   username: !secret august_user
   password: !secret august_pass
-  
-# Phillips Hue  
+
+# Phillips Hue
 hue:
   bridges:
     - host: !secret hue_ip
       allow_unreachable: true
       allow_hue_groups: false
-      
+
 # emulated_hue:
 #   host_ip: 192.168.1.10
 #   listen_port: 8300
-#   expose_by_default: false      
-    
+#   expose_by_default: false
+
 # Calendar
 google:
   client_id: !secret gcal_id
   client_secret: !secret gcal_secret
   track_new_calendar: true
- 
+
 ################################################################################
 # Customization
 ################################################################################
@@ -199,7 +218,7 @@ panel_iframe:
   dashboard:
     title: HADashboard
     icon: mdi:codepen
-    url: https://ogun.local:5050/   
+    url: https://ogun.local:5050/
   ide:
     title: IDE
     icon: mdi:code-array
@@ -220,18 +239,9 @@ panel_iframe:
     title: Wink
     icon: mdi:home-automation
     url: https://winkathome.net/Home.aspx
-    
+
 ### Panels ###
-panel_custom:
-  - name: router
-    sidebar_title: Linksys Smart Wifi
-    sidebar_icon: mdi:router
-    webcomponent_path: !secret linksys
-    config:
-      email_address: !secret linksys_user
-      password: !secret linksys_pass
-    
-    
+
 ### Weblinks ###
 weblink:
   entities:
@@ -268,10 +278,10 @@ weblink:
     - name: Smarthome Hobby
       url: https://smarthomehobby.com/
       icon: mdi:web
-      
+
 ################################################################################
 # Components
-################################################################################ 
+################################################################################
 
 # Track the sun
 sun:
@@ -287,8 +297,8 @@ weather:
 camera:
   - platform: generic
     still_image_url: 'http://api.wunderground.com/api/b97162f1099f16d3/animatedradar/animatedsatellite/q/WA/Seattle.gif'
-    name: Wunderground Radar      
-    
+    name: Wunderground Radar
+
 # Text to speech
 tts:
   - platform: google
@@ -302,27 +312,38 @@ tts:
     # English US Female
     voice: Salli
     # English UK Female
-    # voice: Amy       
+    # voice: Amy
 
 # Zeroconf/Avahi/Bonjour
-zeroconf:    
-    
+zeroconf:
+
 # Wake On Lan
 wake_on_lan:
 
 # UPnP
 #upnp:
 
-proximity:
-  home:
-    devices:
-      - device_tracker.tile
-    tolerance: 50
-    unit_of_measurement: mi 
-    
-# Enable Recorder with MariaDB
-recorder:
-  db_url: !secret maria_url    
+#proximity:
+  #home:
+    #devices:
+    #  - device_tracker.tile
+    #tolerance: 50
+    #unit_of_measurement: mi
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enable iOS frontend
+#ios:
+
+# Enable logging
+#logger:
+
+#zwave:
+  #usb_path: /dev/ttyACM0
+#  new_entity_ids: true
+#  config_path: /srv/homeassistant/lib/python3.4/site-packages/python_openzwave/ozw_config
+  #polling_interval: 30000
 
 ################################################################################
 # Includes
@@ -333,8 +354,8 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 zone: !include zones.yaml
 sensor: !include sensors.yaml
-#binary_sensor: !include binary_sensors.yaml
-#device_tracker: !include device_tracker.yaml
+binary_sensor: !include binary_sensors.yaml
+device_tracker: !include device_tracker.yaml
 switch: !include switches.yaml
 panel_custom: !include panel_custom.yaml
 #light: !include lights.yaml
